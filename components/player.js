@@ -1,18 +1,28 @@
+import YouTube from 'react-native-youtube';
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { keys } from '../keys';
 
 export default class Player extends Component {
 
   constructor(props) {
     super()
+    this.state = {
+      error: null
+    }
   }
+  
 
   render() {
+   
     return (
-      <View>
-        <Text>Play</Text>
-        <Text>{this.props.navigation.getParam('playlist')}</Text>
-      </View>
+      <YouTube
+        apiKey={keys.youtubeAPIkey}
+        videoIds={this.props.navigation.getParam('playlist')} 
+        play
+        loop
+        onError={e => this.setState({ error: e.error })}
+        style={{ alignSelf: 'stretch', height: 300 }}
+      /> 
     );
   }
 }
