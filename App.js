@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import ChannelList from './components/channelList';
 
-export default class HelloWorldApp extends Component {
+
+const data = require('./data.json');
+
+export default class App extends Component {
+  constructor(props) {
+    super(),
+    this.state = {
+      data: data,
+      watched: []
+    }
+  }
+
+  startVideo = (id) => {
+    console.log(`channel ${id} pressed`)
+  }
+  
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello, world!</Text>
-      </View>
+      <ChannelList data={this.state.data} onPress={this.startVideo}/>
     );
   }
 }
