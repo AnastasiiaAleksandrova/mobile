@@ -10,9 +10,7 @@ export default class ChannelList extends Component {
   constructor(props) {
     super(),
     this.state = {
-      data: data,
-      watched: [],
-      
+      data: data
     }
   }
 
@@ -28,7 +26,7 @@ export default class ChannelList extends Component {
               id={item.id}
               name={item.name}
               imgURI={item.icon}
-              onPress={() => navigate('Player', {id: item.id})}/>}
+              onPress={() => navigate('Player', {playlist: item.playlist})}/>}
         />
       </View>
     );
