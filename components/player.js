@@ -1,18 +1,11 @@
-// import Video from 'react-native-video';
-// import { StyleSheet } from 'react-native';
- 
- 
-// <Video source={{uri: "background"}}   // this.props.uri              
-//        onError={this.videoError}               
-//        style={styles.backgroundVideo} />
- 
+import React, { Component } from 'react';
+import { Text } from 'react-native';
 
-// var styles = StyleSheet.create({
-//   backgroundVideo: {
-//     position: 'absolute',
-//     top: 0,
-//     left: 0,
-//     bottom: 0,
-//     right: 0,
-//   },
-// });
+export default class Player extends Component {
+
+  render() {
+    return (
+        <Text>Play</Text>
+    );
+  }
+}

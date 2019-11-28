@@ -1,25 +1,18 @@
-import React, { Component } from 'react';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 import ChannelList from './components/channelList';
+import Player from './components/player';
+
+const MainNavigator = createStackNavigator({
+  Home: {screen: ChannelList},
+  Player: {screen: Player},
+});
+
+const App = createAppContainer(MainNavigator);
+
+export default App;
 
 
-const data = require('./data.json');
 
-export default class App extends Component {
-  constructor(props) {
-    super(),
-    this.state = {
-      data: data,
-      watched: []
-    }
-  }
 
-  startVideo = (id) => {
-    console.log(`channel ${id} pressed`)
-  }
-  
-  render() {
-    return (
-      <ChannelList data={this.state.data} onPress={this.startVideo}/>
-    );
-  }
-}
+
