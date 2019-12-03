@@ -1,26 +1,19 @@
 import React, { Component } from 'react';
 import { FlatList, View } from 'react-native';
 import Channel from './channel';
+import { connect } from 'react-redux';
 
-
-const data = require('../data.json');
-
-
-export default class ChannelList extends Component {
+class ChannelList extends Component {
   constructor(props) {
-    super(),
-    this.state = {
-      data: data
-    }
+    super()
   }
-
-
+  
   render() {
     const {navigate} = this.props.navigation;
     return (
       <View>
         <FlatList
-          data={this.state.data}
+          data={this.props.data}
           renderItem={({item}) =>
             <Channel
               id={item.id}
@@ -32,6 +25,15 @@ export default class ChannelList extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    data: state.data,
+    seen: state.seen
+  }
+}
+
+export default connect(mapStateToProps)(ChannelList);
 
 
 

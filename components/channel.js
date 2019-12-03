@@ -4,7 +4,6 @@ import { Text, View, Image, TouchableWithoutFeedback, StyleSheet } from 'react-n
 export default class Channel extends Component {
 
     render() {
-
     let src = {uri: this.props.imgURI};
     return (
         <TouchableWithoutFeedback onPress={this.props.onPress}>
